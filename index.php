@@ -3,6 +3,10 @@
 require_once './db/Database.php';
 require_once './app/posts-api';
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: *');
+header('Access-Control-Allow-Credentials: true');
 header('Content-type: application/json');
 
 
