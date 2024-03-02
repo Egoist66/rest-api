@@ -1,7 +1,7 @@
 <?php
 
 require_once './db/Database.php';
-require_once './app/posts-api';
+require_once './app/posts-api.php';
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: *');
