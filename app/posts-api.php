@@ -28,7 +28,7 @@ class PostsAPI implements IPostApi
         $this->url_params = parse_url_string();
     }
 
-    private static function getPostApiInstance()
+    private static function getPostApiInstance(): PostsAPI | null
     {
         if (!isset(self::$instance)) {
             self::$instance = new self();
@@ -90,7 +90,7 @@ class PostsAPI implements IPostApi
 
                 echo json_encode([
                     "status" => false,
-                    "message" => "body and title must be provided!",
+                    "message" => "body or title must be provided!",
 
                 ]);
 
@@ -113,7 +113,7 @@ class PostsAPI implements IPostApi
                     echo json_encode([
                         "status" => true,
                         "message" => "Post was created",
-                        "item" => $post ? $post : null
+                        "item" => $post ?? null
                     ]);
                 } else {
                     echo json_encode([
@@ -143,7 +143,7 @@ class PostsAPI implements IPostApi
 
                     echo json_encode([
                         "status" => true,
-                        "message" => "id must be as int type not string"
+                        "message" => "id must be as numeric type not string"
                     ]);
                     return;
                 }
@@ -249,7 +249,7 @@ class PostsAPI implements IPostApi
                         echo json_encode([
                             "status" => true,
                             "message" => "Post was edited",
-                            "item" => $post ? $post : null
+                            "item" => $post ??  null
                         ]);
                     } else {
                         echo json_encode([
